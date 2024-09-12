@@ -1,0 +1,698 @@
+<html><head><base href="https://cybersecurity-portfolio.edu/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Portfolio | 科技安全專家 | サイバーセキュリティポートフォリオ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+  body {
+    font-family: 'Roboto', 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f1a;
+    color: #c5c6c7;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #1c1c2e;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  nav ul li a:hover {
+    color: #ff00ff;
+  }
+  h1, h2 {
+    color: #00ffff;
+  }
+  .hero {
+    text-align: center;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #00ffff;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+  }
+  .cyber-card {
+    background-color: #1c1c2e;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .cyber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+  }
+  .cyber-card h3 {
+    color: #ff00ff;
+  }
+  .cyber-animation {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+    background-size: 200% 100%;
+    animation: gradient 5s linear infinite;
+  }
+  @keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  .competition-banner {
+    width: 100%;
+    height: 300px;
+    background-image: url('competition-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .competition-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .competition-banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 1;
+  }
+  .competition-banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .competition-banner p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+  }
+  .social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1c1c2e;
+    color: #00ffff;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #00ffff;
+  }
+  .social-button:hover {
+    background-color: #00ffff;
+    color: #1c1c2e;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  }
+  .language-switcher {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .language-button {
+    background-color: #1c1c2e;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .language-button:hover, .language-button.active {
+    background-color: #00ffff;
+    color: #1c1c2e;
+  }
+  .growth-chart {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+  }
+  .growth-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .growth-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear forwards;
+  }
+  .growth-icon {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .growth-icon:nth-child(2) { animation-delay: 1s; }
+  .growth-icon:nth-child(3) { animation-delay: 2s; }
+  .growth-icon:nth-child(4) { animation-delay: 3s; }
+  .growth-icon:nth-child(5) { animation-delay: 4s; }
+  .growth-icon:nth-child(6) { animation-delay: 5s; }
+  .growth-descriptions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 50px;
+    box-sizing: border-box;
+  }
+  .growth-step {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  .growth-step:nth-child(1) { animation-delay: 0.5s; }
+  .growth-step:nth-child(2) { animation-delay: 1.5s; }
+  .growth-step:nth-child(3) { animation-delay: 2.5s; }
+  .growth-step:nth-child(4) { animation-delay: 3.5s; }
+  .growth-step:nth-child(5) { animation-delay: 4.5s; }
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .synergy-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .synergy-item {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #1c1c2e;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  .synergy-item:hover {
+    transform: translateY(-5px);
+  }
+  .synergy-item i {
+    font-size: 48px;
+    color: #00ffff;
+    margin-bottom: 15px;
+  }
+  .scene {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+    margin: 40px auto;
+  }
+  .cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+  }
+  .cube__face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #00ffff;
+    background: rgba(28, 28, 46, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #00ffff;
+  }
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home" data-i18n="nav.home">首頁</a></li>
+        <li><a href="#about" data-i18n="nav.about">關於我</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">專業技能</a></li>
+        <li><a href="#competitions" data-i18n="nav.competitions">競賽經歷</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">專案展示</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">聯絡方式</a></li>
+        <li><a href="#synergy" data-i18n="nav.synergy">協同效應</a></li>
+      </ul>
+    </nav>
+    <div class="language-switcher">
+      <button class="language-button" data-lang="en">English</button>
+      <button class="language-button" data-lang="zh">中文</button>
+      <button class="language-button" data-lang="ja">日本語</button>
+    </div>
+  </header>
+
+  <div class="cyber-animation"></div>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="profile-image">
+        <img alt="網路安全專家個人照片，專業且自信的姿態" src="profile-image.jpg" width="200" height="200">
+      </div>
+      <h1 data-i18n="hero.title">網路安全專家的數位世界</h1>
+      <p data-i18n="hero.description">歡迎來到我的個人網站。我是一名網路安全碩士生，致力於保護數字世界的安全與隱私。</p>
+      
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="social-button">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/your-username" target="_blank" class="social-button">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.facebook.com/your-profile" target="_blank" class="social-button">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/your-profile" target="_blank" class="social-button">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 data-i18n="about.title">關於我</h2>
+      <p data-i18n="about.description">作為一名網路安全碩士生，我對於數字世界的安全充滿熱情。我專注於研究最新的網路威脅和防禦技術，並致力於開發創新的解決方案來應對不斷演變的網路安全挑戰。我的目標是成為一名頂尖的網路安全專家，為數字世界的安全做出貢獻。</p>
+    </section>
+
+    <section id="synergy">
+      <h2 data-i18n="synergy.title">軟體開發與網路安全的協同效應</h2>
+      <div class="synergy-container">
+        <div class="synergy-item">
+          <i class="fas fa-code"></i>
+          <h3 data-i18n="synergy.dev.title">軟體開發經驗</h3>
+          <p data-i18n="synergy.dev.description">深厚的程式設計基礎使我能夠更好地理解和識別潛在的安全漏洞，同時也能開發更安全的應用程序。</p>
+        </div>
+        <div class="synergy-item">
+          <i class="fas fa-shield-alt"></i>
+          <h3 data-i18n="synergy.security.title">網路安全專業</h3>
+          <p data-i18n="synergy.security.description">安全意識和技能使我在開發過程中能夠主動考慮和實施安全最佳實踐，創造更安全的軟體產品。</p>
+        </div>
+        <div class="synergy-item">
+          <i class="fas fa-balance-scale"></i>
+          <h3 data-i18n="synergy.balance.title">平衡與創新</h3>
+          <p data-i18n="synergy.balance.description">結合兩個領域的知識，我能夠在功能性和安全性之間找到最佳平衡，推動創新解決方案的發展。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 data-i18n="skills.title">專業技能</h2>
+      <div class="cyber-grid">
+        <div class="cyber-card">
+          <h3 data-i18n="skills.penetration.title">滲透測試</h3>
+          <p data-i18n="skills.penetration.description">精通各種滲透測試技術，能夠識別系統漏洞並提供修復建議。擅長使用Kali Linux、Metasploit等工具。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="skills.malware.title">惡意軟件分析</h3>
+          <p data-i18n="skills.malware.description">具備深入分析惡意軟件的能力，能夠解構其行為並開發防禦策略。熟練使用IDA Pro、OllyDbg等逆向工程工具。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="skills.forensics.title">網絡取證</h3>
+          <p data-i18n="skills.forensics.description">擅長使用先進工具進行數字取證，協助調查網絡事件和數據恢復。精通EnCase、FTK等取證軟件。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="skills.architecture.title">安全架構設計</h3>
+          <p data-i18n="skills.architecture.description">能夠設計和實施安全的網絡架構，確保組織的數字資產得到全面保護。熟悉ISO 27001、NIST等安全框架。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="growth">
+      <h2 data-i18n="growth.title">學習成長歷程</h2>
+      <div class="growth-chart">
+        <svg viewBox="0 0 800 400" class="growth-svg">
+          <path class="growth-path" d="M50,350 Q200,300 400,200 T750,50" fill="none" stroke="#00ffff" stroke-width="4"/>
+          <g class="growth-icon" transform="translate(50,350)">
+            <circle cx="0" cy="0" r="20" fill="#1c1c2e"/>
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#00ffff" font-size="20">🖥️</text>
+          </g>
+          <g class="growth-icon" transform="translate(200,300)">
+            <circle cx="0" cy="0" r="20" fill="#1c1c2e"/>
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#00ffff" font-size="20">💻</text>
+          </g>
+          <g class="growth-icon" transform="translate(400,200)">
+            <circle cx="0" cy="0" r="20" fill="#1c1c2e"/>
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#00ffff" font-size="20">👥</text>
+          </g>
+          <g class="growth-icon" transform="translate(600,100)">
+            <circle cx="0" cy="0" r="20" fill="#1c1c2e"/>
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#00ffff" font-size="20">🏗️</text>
+          </g>
+          <g class="growth-icon" transform="translate(750,50)">
+            <circle cx="0" cy="0" r="20" fill="#1c1c2e"/>
+            <text x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#00ffff" font-size="20">🔒</text>
+          </g>
+        </svg>
+        <div class="growth-descriptions">
+          <div class="growth-step" data-i18n="growth.step1">電腦底層技術</div>
+          <div class="growth-step" data-i18n="growth.step2">軟體開發</div>
+          <div class="growth-step" data-i18n="growth.step3">領導能力</div>
+          <div class="growth-step" data-i18n="growth.step4">架構設計</div>
+          <div class="growth-step" data-i18n="growth.step5">資訊安全</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competitions">
+      <h2 data-i18n="competitions.title">競賽經歷</h2>
+      <div class="competition-banner">
+        <div class="competition-banner-content">
+          <h2 data-i18n="competitions.banner.title">全國網路安全競賽冠軍</h2>
+          <p data-i18n="competitions.banner.description">在2023年全國網路安全精英挑戰賽中脫穎而出，展現了卓越的問題解決能力和創新思維</p>
+        </div>
+      </div>
+      <div class="cyber-grid">
+        <div class="cyber-card">
+          <h3 data-i18n="competitions.national.title">2023 全國網路安全精英挑戰賽</h3>
+          <p data-i18n="competitions.national.description">在激烈的競爭中脫穎而出，獲得冠軍。展示了在網路攻防、密碼學和系統安全等多個領域的綜合實力。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="competitions.hackathon.title">2022 國際黑客松大賽</h3>
+          <p data-i18n="competitions.hackathon.description">與來自全球的頂尖開發者同台競技，開發了一款創新的網路安全監控系統，獲得評委的高度讚賞，榮獲亞軍。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="competitions.ctf.title">2021 亞太區CTF比賽</h3>
+          <p data-i18n="competitions.ctf.description">帶領團隊參加了為期48小時的Capture The Flag比賽，在逆向工程和Web安全方面表現出色，最終獲得第三名。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 data-i18n="projects.title">專案展示</h2>
+      <div class="cyber-grid">
+        <div class="cyber-card">
+          <h3 data-i18n="projects.firewall.title">智能防火牆系統</h3>
+          <p data-i18n="projects.firewall.description">開發了一套基於機器學習的智能防火牆系統，能夠自動識別和阻擋新型網絡威脅。該系統通過分析網絡流量模式，實現了99.7%的威脅檢測率。</p>
+        </div>
+        <div class="cyber-card">
+          <h3 data-i18n="projects.blockchain.title">區塊鏈安全審計工具</h3>
+          <p data-i18n="projects.blockchain.description">設計並實現了一個用於審計智能合約安全性的自動化工具，提高了區塊鏈應用的安全性。該工具已被多個知名區塊鏈項目採用，顯著降低了安全漏洞風險。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="interactive-cube">
+      <h2 data-i18n="cube.title">互動式技能立方體</h2>
+      <div class="scene">
+        <div class="cube">
+          <div class="cube__face cube__face--front">前端開發</div>
+          <div class="cube__face cube__face--back">後端開發</div>
+          <div class="cube__face cube__face--right">網路安全</div>
+          <div class="cube__face cube__face--left">系統架構</div>
+          <div class="cube__face cube__face--top">專案管理</div>
+          <div class="cube__face cube__face--bottom">數據分析</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact.title">聯絡方式</h2>
+      <p data-i18n="contact.description">如果您對我的工作感興趣，或者想討論任何網路安全相關的話題，歡迎通過以下方式與我聯繫：</p>
+      <ul>
+        <li data-i18n="contact.email">Email: contact@cybersecurity-portfolio.edu</li>
+        <li data-i18n="contact.linkedin">LinkedIn: <a href="https://www.linkedin.com/in/cybersecurity-expert" target="_blank">cybersecurity-expert</a></li>
+        <li data-i18n="contact.github">GitHub: <a href="https://github.com/cybersecurity-master" target="_blank">cybersecurity-master</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="cyber-animation"></div>
+    <p data-i18n="footer.copyright">&copy; 2023 Cybersecurity Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        "nav.home": "Home",
+        "nav.about": "About",
+        "nav.skills": "Skills",
+        "nav.competitions": "Competitions",
+        "nav.projects": "Projects",
+        "nav.contact": "Contact",
+        "nav.synergy": "Synergy",
+        "hero.title": "Digital World of a Cybersecurity Expert",
+        "hero.description": "Welcome to my personal website. I am a cybersecurity master's student dedicated to protecting the security and privacy of the digital world.",
+        "about.title": "About Me",
+        "about.description": "As a cybersecurity master's student, I am passionate about digital world security. I focus on researching the latest cyber threats and defense technologies, and I am committed to developing innovative solutions to address evolving cybersecurity challenges. My goal is to become a top cybersecurity expert and contribute to the security of the digital world.",
+        "skills.title": "Professional Skills",
+        "skills.penetration.title": "Penetration Testing",
+        "skills.penetration.description": "Proficient in various penetration testing techniques, able to identify system vulnerabilities and provide remediation suggestions. Skilled in using tools such as Kali Linux and Metasploit.",
+        "skills.malware.title": "Malware Analysis",
+        "skills.malware.description": "Capable of in-depth analysis of malware, able to deconstruct its behavior and develop defense strategies. Proficient in using reverse engineering tools such as IDA Pro and OllyDbg.",
+        "skills.forensics.title": "Network Forensics",
+        "skills.forensics.description": "Skilled in using advanced tools for digital forensics, assisting in investigating network incidents and data recovery. Proficient in forensic software such as EnCase and FTK.",
+        "skills.architecture.title": "Security Architecture Design",
+        "skills.architecture.description": "Able to design and implement secure network architectures, ensuring comprehensive protection of an organization's digital assets. Familiar with security frameworks such as ISO 27001 and NIST.",
+        "competitions.title": "Competition Experience",
+        "competitions.banner.title": "National Cybersecurity Competition Champion",
+        "competitions.banner.description": "Stood out in the 2023 National Cybersecurity Elite Challenge, demonstrating excellent problem-solving skills and innovative thinking",
+        "competitions.national.title": "2023 National Cybersecurity Elite Challenge",
+        "competitions.national.description": "Emerged victorious in fierce competition, winning the championship. Demonstrated comprehensive strength in various fields such as cyber attack and defense, cryptography, and system security.",
+        "competitions.hackathon.title": "2022 International Hackathon",
+        "competitions.hackathon.description": "Competed with top developers from around the world, developed an innovative cybersecurity monitoring system, received high praise from judges, and won second place.",
+        "competitions.ctf.title": "2021 Asia-Pacific CTF Competition",
+        "competitions.ctf.description": "Led a team in a 48-hour Capture The Flag competition, excelling in reverse engineering and Web security, ultimately securing third place.",
+        "projects.title": "Project Showcase",
+        "projects.firewall.title": "Intelligent Firewall System",
+        "projects.firewall.description": "Developed a machine learning-based intelligent firewall system capable of automatically identifying and blocking new network threats. The system achieves a 99.7% threat detection rate by analyzing network traffic patterns.",
+        "projects.blockchain.title": "Blockchain Security Audit Tool",
+        "projects.blockchain.description": "Designed and implemented an automated tool for auditing smart contract security, enhancing the security of blockchain applications. The tool has been adopted by several well-known blockchain projects, significantly reducing security vulnerability risks.",
+        "contact.title": "Contact Information",
+        "contact.description": "If you're interested in my work or want to discuss any cybersecurity-related topics, please feel free to contact me through the following channels:",
+        "contact.email": "Email: contact@cybersecurity-portfolio.edu",
+        "contact.linkedin": "LinkedIn: cybersecurity-expert",
+        "contact.github": "GitHub: cybersecurity-master",
+        "footer.copyright": "© 2023 Cybersecurity Portfolio. All rights reserved.",
+        "growth.title": "Learning and Growth Journey",
+        "growth.step1": "Computer Fundamentals",
+        "growth.step2": "Software Development",
+        "growth.step3": "Leadership",
+        "growth.step4": "Architecture Design",
+        "growth.step5": "Cybersecurity",
+        "synergy.title": "Synergy between Software Development and Cybersecurity",
+        "synergy.dev.title": "Software Development Experience",
+        "synergy.dev.description": "Strong programming foundation enables me to better understand and identify potential security vulnerabilities, while also developing more secure applications.",
+        "synergy.security.title": "Cybersecurity Expertise",
+        "synergy.security.description": "Security awareness and skills allow me to proactively consider and implement security best practices during development, creating more secure software products.",
+        "synergy.balance.title": "Balance and Innovation",
+        "synergy.balance.description": "By combining knowledge from both fields, I can find the optimal balance between functionality and security, driving the development of innovative solutions.",
+        "cube.title": "Interactive Skills Cube"
+      },
+      zh: {
+        "growth.title": "學習成長歷程",
+        "growth.step1": "電腦底層技術",
+        "growth.step2": "軟體開發",
+        "growth.step3": "領導能力",
+        "growth.step4": "架構設計",
+        "growth.step5": "資訊安全",
+        "synergy.title": "軟體開發與網路安全的協同效應",
+        "synergy.dev.title": "軟體開發經驗",
+        "synergy.dev.description": "深厚的程式設計基礎使我能夠更好地理解和識別潛在的安全漏洞，同時也能開發更安全的應用程序。",
+        "synergy.security.title": "網路安全專業",
+        "synergy.security.description": "安全意識和技能使我在開發過程中能夠主動考慮和實施安全最佳實踐，創造更安全的軟體產品。",
+        "synergy.balance.title": "平衡與創新",
+        "synergy.balance.description": "結合兩個領域的知識，我能夠在功能性和安全性之間找到最佳平衡，推動創新解決方案的發展。",
+        "cube.title": "互動式技能立方體"
+      },
+      ja: {
+        "growth.title": "学習と成長の過程",
+        "growth.step1": "コンピューター基礎",
+        "growth.step2": "ソフトウェア開発",
+        "growth.step3": "リーダーシップ",
+        "growth.step4": "アーキテクチャ設計",
+        "growth.step5": "サイバーセキュリティ",
+        "synergy.title": "ソフトウェア開発とサイバーセキュリティの相乗効果",
+        "synergy.dev.title": "ソフトウェア開発経験",
+        "synergy.dev.description": "強力なプログラミング基盤により、潜在的なセキュリティ脆弱性をより良く理解し識別できると同時に、より安全なアプリケーションを開発できます。",
+        "synergy.security.title": "サイバーセキュリティ専門知識",
+        "synergy.security.description": "セキュリティ意識とスキルにより、開発中にセキュリティのベストプラクティスを積極的に考慮し実装することができ、より安全なソフトウェア製品を作成できます。",
+        "synergy.balance.title": "バランスとイノベーション",
+        "synergy.balance.description": "両分野の知識を組み合わせることで、機能性とセキュリティの最適なバランスを見出し、革新的なソリューションの開発を推進できます。",
+        "cube.title": "インタラクティブスキルキューブ"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        elem.textContent = translations[lang][key] || elem.textContent;
+      });
+      document.querySelectorAll('.language-button').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('data-lang') === lang);
+      });
+    }
+
+    function detectLanguage() {
+      const userLang = navigator.language || navigator.userLanguage;
+      if (userLang.startsWith('zh')) return 'zh';
+      if (userLang.startsWith('ja')) return 'ja';
+      return 'en';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Set initial language
+      const initialLang = detectLanguage();
+      setLanguage(initialLang);
+
+      // Language switcher
+      document.querySelectorAll('.language-button').forEach(button => {
+        button.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Scroll animations
+      const elements = document.querySelectorAll('.fade-in');
+      function handleScrollAnimations() {
+        elements.forEach(el => {
+          if (isElementInViewport(el)) {
+            el.classList.add('visible');
+          }
+        });
+      }
+
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      window.addEventListener('scroll', handleScrollAnimations);
+      window.addEventListener('resize', handleScrollAnimations);
+
+      // 3D Cube interaction
+      let currentRotation = { x: 0, y: 0 };
+      const cube = document.querySelector('.cube');
+
+      cube.addEventListener('click', function() {
+        currentRotation.y -= 90;
+        updateCubeRotation();
+      });
+
+      function updateCubeRotation() {
+        cube.style.transform = `translateZ(-100px) rotateX(${currentRotation.x}deg) rotateY(${currentRotation.y}deg)`;
+      }
+
+      // Initial call to handle animations on page load
+      handleScrollAnimations();
+    });
+  </script>
+</body>
+</html>
